@@ -1,0 +1,74 @@
+.dashboard-container {
+    height: 100vh; /* Full height of the viewport */
+    background: #f8f9fa; /* Light background for the dashboard */
+  }
+  
+  .sidebar {
+    background: linear-gradient(135deg, #6c757d, #343a40); /* Gradient background */
+    position: fixed;
+    top: 50%; /* Start from the vertical middle */
+    left: 0; /* Align to the left */
+    width: 250px; /* Width of the sidebar */
+    height: 50%; /* Height of the sidebar */
+    transform: translateY(-50%); /* Center vertically */
+    padding: 1rem;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3); /* Sidebar shadow */
+    z-index: 1000; /* Ensure sidebar is above other elements */
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+  }
+  
+  .sidebar.show {
+    transform: translateY(-50%); /* Show sidebar when toggled */
+  }
+  
+  .sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .sidebar .nav-link {
+    color: #ffffff; /* White text for links */
+    padding: 10px; /* Add padding for a larger clickable area */
+    transition: background 0.3s, color 0.3s; /* Smooth background transition */
+  }
+  
+  .sidebar .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Light background on hover */
+    color: #f8f9fa; /* Keep text white on hover */
+  }
+  
+  .content {
+    margin-left: 250px; /* Space for sidebar */
+    padding: 1rem;
+    height: 100vh; /* Full height of the viewport */
+    overflow-y: auto; /* Allow scrolling if content overflows */
+    transition: margin 0.3s ease; /* Smooth transition for content */
+  }
+  
+  .content.expanded {
+    margin-left: 0; /* No margin when sidebar is hidden */
+  }
+  
+  .main-content {
+    background: white; /* Background for main content */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Shadow for main content */
+    padding: 20px; /* Add padding inside main content */
+  }
+  
+  @media (max-width: 768px) {
+    .sidebar {
+      width: 100%; /* Full width on mobile */
+      height: auto; /* Allow height to adjust */
+      transform: translateY(0); /* Ensure sidebar is visible */
+    }
+    .content {
+      margin-left: 0; /* No margin when sidebar is hidden */
+    }
+    .content.expanded {
+      margin-left: 0; /* Ensure content does not shift */
+    }
+  }
+  
